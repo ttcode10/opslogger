@@ -1,0 +1,8 @@
+<h2 class="mb-3">{{isNew? 'Add Log' : 'Edit Log'}}</h2>
+<form class="card card-body mb-3" (ngSubmit)="onSubmit()">
+    <input type="text" class="form-control mb-3" placeholder="Add a log" [(ngModel)]="text" name="text">
+    <div>
+        <button class="btn btn-secondary" type="submit">{{isNew? 'Submit' : 'Update'}}</button>
+        <button class="btn btn-light ml-3" type="button" [hidden]="!text" (click)="clearState()">Clear</button>
+    </div>
+</form>

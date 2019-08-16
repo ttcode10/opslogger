@@ -1,0 +1,16 @@
+.date {
+    color: #777777;
+}
+
+li, button, i {
+    cursor: pointer;
+}
+
+li:hover {
+    cursor: pointer;
+    background: #eeeeee;
+}
+
+.active {
+    background: none;
+}
