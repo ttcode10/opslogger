@@ -24,9 +24,9 @@ export class LogService {
   }
 
   getLogs(): Observable<Log[]> {
+    this.logs = this.getFromLocalStorage();
     if(this.logs.length > 0) {
-      this.logs = this.getFromLocalStorage();
-      this.sortLogs();
+      this.sortLog();
     } else {
       this.logs = [];
     }
