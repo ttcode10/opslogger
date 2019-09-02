@@ -17,7 +17,7 @@ export class LogformComponent implements OnInit {
 
   ngOnInit() {
     this.logService.getSourceLog().subscribe(log => {
-      if(log.id !== null) {
+      if(!!log.id) {
         this.id = log.id;
         this.text = log.text;
         this.date = log.date;
