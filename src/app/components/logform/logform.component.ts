@@ -32,22 +32,24 @@ export class LogformComponent implements OnInit {
   }
 
   onSubmit() {
-    if(this.isNew === true) {
-      const newLog = {
-        id: this.generateID(),
-        text: this.text,
-        date: new Date()
+    if(!!this.text) {
+      if(this.isNew === true) {
+        const newLog = {
+          id: this.generateID(),
+          text: this.text,
+          date: new Date()
+        }
+        this.logService.addLog(newLog);
+        // this.clearState();
+      } else {
+        const updatedLog = {
+          id: this.id,
+          text: this.text,
+          date: new Date()
+        }
+        this.logService.updateLog(updatedLog);
+        // this.clearState();
       }
-      this.logService.addLog(newLog);
-      // this.clearState();
-    } else {
-      const updatedLog = {
-        id: this.id,
-        text: this.text,
-        date: new Date()
-      }
-      this.logService.updateLog(updatedLog);
-      // this.clearState();
     }
     this.logService.setFormLog({id: null, text: null, date: null});
   }
